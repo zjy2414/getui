@@ -135,15 +135,15 @@ func TestGetui_ToAppTag(t *testing.T) {
 	fmt.Println("success " + fmt.Sprintf("%v", resp) + " _ " + taskId)
 }
 
-func TestGetui_CustomTagsToUser(t *testing.T) {
-	g := &GeTuiConfig{
-		RequestTimeout: 2,
-	}
+// func TestGetui_CustomTagsToUser(t *testing.T) {
+// 	g := &GeTuiConfig{
+// 		RequestTimeout: 2,
+// 	}
 
-	resp, err := NewGetui(g).SetCache(MockCache{}).
-		CustomTagsToUser("5c0bce442cb4d708da0501ce6e2c0d2a", "yufeng")
-	if err != nil {
-		fmt.Println(err)
-	}
-	fmt.Println("success " + fmt.Sprintf("%v", resp))
-}
+// 	resp, err := NewGetui(g).SetCache(MockCache{}).
+// 		CustomTagsToUser("5c0bce442cb4d708da0501ce6e2c0d2a", "yufeng")
+// 	if err != nil {
+// 		fmt.Println(err)
+// 	}
+// 	fmt.Println("success " + fmt.Sprintf("%v", resp))
+// }

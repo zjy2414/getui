@@ -45,7 +45,7 @@ type Getui struct {
 // 新建Getui实例
 func NewGetui(con *GeTuiConfig) *Getui {
 	// 检查配置
-	if len(con.appId) == 0 {
+	if len(con.AppId) == 0 {
 		panic("请先加载配置")
 	}
 
@@ -90,7 +90,7 @@ func (g *Getui) checkRequestId(r string) bool {
 }
 
 func (g *Getui) url(path string) string {
-	return fmt.Sprintf(BaseUrl, g.con.appId, path)
+	return fmt.Sprintf(BaseUrl, g.con.AppId, path)
 }
 
 func (g *Getui) token() string {
@@ -101,12 +101,12 @@ func (g *Getui) token() string {
 		}
 	}
 
-	sign, tp := Signature(g.con.appKey, g.con.masterSecret)
+	sign, tp := Signature(g.con.AppKey, g.con.MasterSecret)
 
 	body := map[string]string{
 		"sign":      sign,
 		"timestamp": tp,
-		"appkey":    g.con.appKey,
+		"appkey":    g.con.AppKey,
 	}
 
 	resp, err := Do("POST", g.url("auth"), "", body)
